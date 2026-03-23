@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"><html lang="el" class="no-js">
+<html lang="el" class="no-js">
+<title>Ποιοι είμαστε</title>
+<head>
+    <link href="images/learnIT!logo.jpg" rel="shortcut icon" type="image/png" />
+</head>
+<body>
+    <header>
+      <a href="index.html"><img id="logo" src="images/learnIT!logo.png"></a>
+      <h1>LearnIT! - Your Path to Learning Informatics</h1>
+    </header> 
+
+	
+    <nav>
+      <div class="dropdown">
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="dropbtn">
+          <div class="container">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+        </label>
+        <div class="dropdown-content">
+            <a href="index.html"><i class="fas fa-home"></i> Αρχική Σελίδα</a>
+            <a href="categories.html"><i class="fas fa-book"></i> Μαθήματα</a>
+            <a href="aboutus.html" class="active"><i class="fas fa-users"></i> Ποιοι Είμαστε</a>
+
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h4>Sign In</h4>
+        <p>Κάντε εγγραφή για μια εξατομικευμένη εμπειρία μάθησης!</p>
+        <a href="register.html" class="cta-button">Εγγραφείτε τώρα</a>  
+      </div>
+      
+  
+      
+      <div class="chat-support">
+        <a href="chat.html" class="chat-support-button">
+          <i class="fas fa-commenting" id="speechbubble"></i> Ζωντανή Υποστήριξη
+          <span class="blinking-dot"></span>
+        </a>
+      </div>
+
+    </nav>
+
+    <main>
+      <div class="content">
+        <section>
+          <h1 id="PageTitle">Ποιοι Είμαστε</h1>
+          <div class="cards-container">
+            
+            <div class="card">
+              <h2>Σταύρος Λιοτσάκης</h2>
+              <input type="checkbox" id="flip1" class="flip-checkbox">
+              <label for="flip1" class="flip-card">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img id="avatar" src="images/stavrosliotsakis.png">
+                  </div>
+                  <div class="flip-card-back">
+                    <p>Education: Athens University of Economics and Business Department of Informatics (2021 - 2025) & Vilniaus universitetas / Vilnius University Erasmus+ Student in Computer Science (February 2024 - June 2024)</p>
+                    <p>Work Experience: Summer Camp “The Ranch” Team leader (July 2024), Stavros tou Notou Bartender (October 2023 - February 2024), Private Lessons Mathematics Teacher (September 2021 - June 2023)</p>
+                    <p>Languages: English Full professional proficiency, Greek Native proficiency</p>
+                    <p>Skills: Java, Python, SQL, HTML.</p>
+                    <p>Hobbies: Football, Cretan lyra</p>
+                    <p>Email: p3210106@aueb.gr</p>
+                  </div>
+                </div>
+              </label>
+              </div>
+            </div>
+            
+            <div class="card">
+              <h2>Αθανάσιος Ζωγράφος</h2>
+              <input type="checkbox" id="flip2" class="flip-checkbox">
+              <label for="flip2" class="flip-card">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img id="avatar" src="images/athanasioszografos.png">
+                  </div>
+                  <div class="flip-card-back">
+                    <p>Education: Athens University of Economics and Business Department of Informatics (2021 - 2025)</p>
+                    <p>Work Experience: B-square power assembly services Assembling chargers for electric vehicles (July 2024)</p>
+                    <p>Languages: English Full professional proficiency, Greek Native proficiency</p>
+                    <p>Skills: Java, Python, SQL, HTML.</p>
+                    <p>Hobbies: Football, working out</p>
+                    <p>Email: p3210052@aueb.gr</p>
+                  </div>
+                </div>
+              </label>
+              </div>
+            </div>
+            
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <aside>
+      <div class="announcement-container">
+        <h2 id="news">Νέα & Ανακοινώσεις</h2>
+        <!-- Radio buttons -->
+        <input type="radio" name="announcement" id="announcement-1" checked>
+        <input type="radio" name="announcement" id="announcement-2">
+        <input type="radio" name="announcement" id="announcement-3">
+    
+        <!-- Ανακοινώσεις -->
+        <ul id="announcements">
+          <li class="announcement" data-for="announcement-1"><i class="fa fa-bell" id="bell"></i> Νέο μάθημα:<a href="categories.html"> Μαθηματικά I</a></li>
+          <li class="announcement" data-for="announcement-2"><i class="fa fa-calendar" id="calendar"></i> Δωρεάν webinar στις 20 Νοεμβρίου!</li>
+          <li class="announcement" data-for="announcement-3"><i class="fa fa-book" id="book"></i> Ενημερώθηκε η βιβλιοθήκη με νέες σημειώσεις.</li>
+        </ul>
+    
+        <!-- Κουμπιά πλοήγησης -->
+        <div class="arrows">
+          <label for="announcement-3" class="arrow prevIs3">&#11160;</label>
+          <label for="announcement-2" class="arrow nextIs2">&#11162;</label>
+    
+          <label for="announcement-1" class="arrow prevIs1">&#11160;</label>
+          <label for="announcement-3" class="arrow nextIs3">&#11162;</label>
+    
+          <label for="announcement-2" class="arrow prevIs2">&#11160;</label>
+          <label for="announcement-1" class="arrow nextIs1">&#11162;</label>
+        </div>
+    
+        <!-- Κουκκίδες -->
+        <div class="dots">
+          <label for="announcement-1" class="dot"></label>
+          <label for="announcement-2" class="dot"></label>
+          <label for="announcement-3" class="dot"></label>
+        </div>
+      </div>
+    
+      <!-- Κουτί Discord -->
+      <div class="discord-info">
+        <h3>Join our Discord Server!</h3>
+        <p>Συνδέσου με άλλους χρήστες του LearnIT!, συζήτησε για τα μαθήματα, και λύσε απορίες μαζί με την κοινότητά μας.</p>
+        <a href="https://discord.gg/your-server-link" target="_blank" class="discord-button">
+          <i class="fab fa-discord"></i> <span class="bouncing-text">Join Now</span> 
+        </a>
+      </div>
+    </aside>
+  
+
+    <footer>		  
+			<ul class="socialMedia">
+				<li><a href="#"><i class="fab fa-instagram icon"></i></a></li>
+				<li><a href="#"><i class="fab fa-facebook-f icon"></i></a></li>
+				<li><a href="#"><i class="fab fa-google-plus-g icon"></i></a></li>
+			</ul>
+			<hr>
+				<p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by LearnIT!</p>			  
+  </footer>
+</body>
+</html>

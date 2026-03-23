@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<html lang="en">
+
+<head>
+	<link href="images/learnIT!logo.jpg" rel="shortcut icon" type="image/png" />
+</head>
+<body>
+
+  <header>
+    <a href="index.html"><img id="logo" src="images/learnIT!logo.png"></a>
+    <h1>LearnIT! - Your Path to Learning Informatics</h1>
+</header>
+
+<nav>
+	<div class="dropdown">
+	<input type="checkbox" id="menu-toggle" />
+	<label for="menu-toggle" class="dropbtn">
+		<div class="container">
+			<div class="bar1"></div>
+			<div class="bar2"></div>
+			<div class="bar3"></div>
+		</div>
+	</label>
+	<div class="dropdown-content">
+		<a href="index.html" class="active"><i class="fas fa-home"></i> Αρχική Σελίδα</a>
+		<a href="categories.html"><i class="fas fa-book"></i> Μαθήματα</a>
+		<a href="aboutus.html"><i class="fas fa-users"></i> Ποιοι Είμαστε</a>
+	</div>			  
+	</div>
+
+
+		<div class="cta-box">
+			<h4>Sign In</h4>
+			<p>Κάντε εγγραφή για μια εξατομικευμένη εμπειρία μάθησης!</p>
+			<a href="register.html" class="cta-button">Εγγραφείτε τώρα</a>  
+		</div>
+		
+
+		
+        <div class="chat-support">
+			<a href="chat.html" class="chat-support-button">
+			  <i class="fas fa-commenting" id="speechbubble"></i> Ζωντανή Υποστήριξη
+			  <span class="blinking-dot"></span>
+			</a>
+		  </div>
+		  
+	</nav>
+
+
+
+  <main>
+    <form id="registration-form" class="registration-form">
+      <title>Φόρμα Εγγραφής</title>
+      <h1>Εγγραφή Χρήστη</h1>
+      <!-- Προσωπικά Στοιχεία -->
+      <fieldset>
+        <legend>Προσωπικά Στοιχεία</legend>
+        <label for="fullname">Ονοματεπώνυμο:</label>
+        <input type="text" id="fullname" name="fullname" required placeholder="Όνομα  Επώνυμο">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required autocomplete="email" placeholder="example@email.com">
+
+        <label for="dob">Ημερομηνία Γέννησης:</label>
+        <input type="date" id="dob" name="dob" required>
+        
+        <label for="phone">Τηλέφωνο:</label>
+        <input type="tel" id="phone" name="phone" required pattern="\d{10}" title="Πρέπει να εισάγετε 10 ψηφία." placeholder="69XXXXXXXX">
+
+        <label for="had">Διεύθυνση Κατοικίας:</label>
+        <input type="addr" id="addr" name="addr" required placeholder="Οδός  Αριθμός">
+      </fieldset>
+
+      <!-- Στοιχεία Ταυτοποίησης -->
+      <fieldset>
+        <legend>Στοιχεία Ταυτοποίησης</legend>
+      
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required placeholder="Username">
+      
+        <label for="password">Password:</label>
+        <div class="password-container">
+          <input type="password" id="password" name="password" required placeholder="Password">
+          <button type="button" id="toggle-password" class="toggle-password">
+            <i class="fa-solid fa-eye"></i> <!-- Αρχικό εικονίδιο -->
+          </button>
+        </div>
+      
+        <label for="confirm-password">Επιβεβαίωση Password:</label>
+        <div class="password-container">
+          <input type="password" id="confirm-password" name="confirm-password" required placeholder="Επιβεβαίωση Password">
+          <button type="button" id="toggle-confirm-password" class="toggle-password">
+            <i class="fa-solid fa-eye"></i> <!-- Αρχικό εικονίδιο -->
+          </button>
+        </div>
+      </fieldset>
+            
+      <!-- Επιλογές Επικοινωνίας -->
+      <fieldset>
+        <legend>Επιλογές Επικοινωνίας</legend>
+        <label for="contact-method">Μέθοδος Επικοινωνίας:</label>
+        <input list="contact-methods" id="contact-method" name="contact-method" required>
+        <datalist id="contact-methods">
+          <option value="Email">
+          <option value="SMS">
+          <option value="Viber">
+          <option value="WhatsApp">
+        </datalist>
+      </fieldset>
+
+      <!-- Ερωτηματολόγιο -->
+      <fieldset>
+        <legend>Ερωτηματολόγιο</legend>
+
+        <label for="education">Ποιο είναι το επίπεδο σπουδών σας;</label>
+        <select id="education" name="education" required>
+          <option value="" selected>-Επιλογή-</option>
+          <option value="Πτυχίο">Πτυχίο</option>
+          <option value="Μεταπτυχιακό">Μεταπτυχιακό</option>
+          <option value="Διδακτορικό">Διδακτορικό</option>
+        </select>
+
+        <label for="subj">Ποιο είναι το αντικείμενο σπουδών σας;</label>
+        <input list="subjects" id="subj" name="subj" required placeholder="-Επιλογή-">
+        <datalist id="subjects">
+          <option value="Πληροφορική">
+          <option value="Στατιστική">
+        </datalist>
+
+        <label for="field">Σε ποιο έτος σπουδών βρίσκεστε;</label>
+        <select name="year" required>
+          <option value="" selected>-Επιλογή-</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5+</option>
+        </select>
+
+        <label for="field">Έχετε επαγγελματική εμπειρία στον τομέα της πληροφορικής;</label>
+        <select name="exp" required>
+          <option value="" selected>-Επιλογή-</option>
+          <option value="yes">Ναι</option>
+          <option value="no">Όχι</option>
+        </select>
+
+        <label for="field">Πόσα χρόνια επαγγελματικής εμπειρίας διαθέτετε;</label>
+        <select name="years" required>
+          <option value="" selected>-Επιλογή-</option>
+          <option value="0-2">0-2 χρόνια</option>
+          <option value="3-5">3-5 χρόνια</option>
+          <option value="6-10">6-10 χρόνια</option>
+          <option value="10+">Πάνω από 10 χρόνια</option>
+        </select>
+
+      </fieldset>
+
+      <!-- Υποβολή -->
+      <button id="sub">Υποβολή</button></form>
+    </form>
+      <div id="successPopup">
+        <i class="fa-solid fa-check"></i> Επιτυχής Υποβολή
+      </div>
+  </main>
+  <script src="script.js"></script>
+
+	<aside>
+		<div class="announcement-container">
+			<h2 id="news">Νέα & Ανακοινώσεις</h2>
+			<!-- Radio buttons -->
+			<input type="radio" name="announcement" id="announcement-1" checked>
+			<input type="radio" name="announcement" id="announcement-2">
+			<input type="radio" name="announcement" id="announcement-3">
+	
+			<!-- Ανακοινώσεις -->
+			<ul id="announcements">
+				<li class="announcement" data-for="announcement-1"><i class="fa fa-bell" id="bell"></i> Νέο μάθημα:<a href="categories.html"> Μαθηματικά I</a></li>
+				<li class="announcement" data-for="announcement-2"><i class="fa fa-calendar" id="calendar"></i> Δωρεάν webinar στις 20 Νοεμβρίου!</li>
+				<li class="announcement" data-for="announcement-3"><i class="fa fa-book" id="book"></i> Ενημερώθηκε η βιβλιοθήκη με νέες σημειώσεις.</li>
+			</ul>
+	
+			<!-- Κουμπιά πλοήγησης -->
+			<div class="arrows">
+				<label for="announcement-3" class="arrow prevIs3">&#11160;</label>
+				<label for="announcement-2" class="arrow nextIs2">&#11162;</label>
+	
+				<label for="announcement-1" class="arrow prevIs1">&#11160;</label>
+				<label for="announcement-3" class="arrow nextIs3">&#11162;</label>
+	
+				<label for="announcement-2" class="arrow prevIs2">&#11160;</label>
+				<label for="announcement-1" class="arrow nextIs1">&#11162;</label>
+			</div>
+	
+			<!-- Κουκκίδες -->
+			<div class="dots">
+				<label for="announcement-1" class="dot"></label>
+				<label for="announcement-2" class="dot"></label>
+				<label for="announcement-3" class="dot"></label>
+			</div>
+		</div>
+	
+		<!-- Κουτί Discord -->
+		<div class="discord-info">
+			<h3>Join our Discord Server!</h3>
+			<p>Συνδέσου με άλλους χρήστες του LearnIT!, συζήτησε για τα μαθήματα, και λύσε απορίες μαζί με την κοινότητά μας.</p>
+			<a href="https://discord.gg/your-server-link" target="_blank" class="discord-button">
+			  <i class="fab fa-discord"></i> <span class="bouncing-text">Join Now</span> 
+			</a>
+		  </div>
+	</aside>
+
+  <footer>		  
+    <ul class="socialMedia">
+      <li><a href="#"><i class="fab fa-instagram icon"></i></a></li>
+      <li><a href="#"><i class="fab fa-facebook-f icon"></i></a></li>
+      <li><a href="#"><i class="fab fa-google-plus-g icon"></i></a></li>
+    </ul>
+    <hr>
+      <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by LearnIT!</p>			  
+</footer>
+
+
+
+</body>
+</html>

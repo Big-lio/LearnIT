@@ -1,0 +1,1907 @@
+
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden; /* Κρύβει το οριζόντιο scroll */
+    font-size: 15px;
+    background-color:  rgba(2, 2, 83, 0.781);
+    background-image: url('images/background4.jpg'); /* Ορίστε το μονοπάτι της εικόνας */
+    background-size: cover; /* Η εικόνα καλύπτει όλο το παράθυρο */
+    background-position: center; /* Κέντρο εικόνας για καλύτερη ευθυγράμμιση */
+    background-repeat: no-repeat; /* Αποφεύγει την επανάληψη της εικόνας */
+    background-attachment: fixed; /* Κάνει την εικόνα σταθερή κατά το scroll */
+    background-blend-mode: overlay; /* Χρησιμοποιεί overlay blend για να χρωματίσει την εικόνα */
+  }
+
+  .content {
+    margin-bottom: 8%;
+    max-height: 100%;
+  }
+
+#logo {
+    height: 100px; 
+}
+
+#PageTitle{
+    color: white;
+    margin-top: 2%;
+}
+
+/*Menu*/
+.cta-box {
+  text-align: center;
+  background-color: #dc630d;
+  padding: 8%;
+  margin-top: 160%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 5% 10%;
+  background-color: #ffffff;
+  color: #dc630d;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden; /* Βοηθά να μην εμφανίζονται σκιές ή ανεπιθύμητα στοιχεία */
+  transition: background-color 0.3s;
+}
+
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* Λιγότερο διαφανές για να αποφευχθεί το έντονο μπλε */
+  transition: left 0.5s;
+}
+
+.chat-support {
+  position: relative;
+  margin-top: 60%;
+  background-color: #dc630d;
+  padding: 7%;
+  border-radius: 10px; /* Μειωμένο για πιο τετραγωνή εμφάνιση */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #ffffff;
+}
+
+.chat-support::after {
+  content: '';
+  position: absolute;
+  bottom: -21px; /* Ρυθμίζει τη θέση του τριγώνου */
+  left: 20%; /* Μετακίνηση πιο αριστερά */
+  transform: translateX(-50%) rotate(10deg); /* Κλίση του τριγώνου */
+  width: 0;
+  height: 0;
+  border-width: 12px;
+  border-style: solid;
+  border-color: #dc630d transparent transparent transparent;
+}
+
+
+#speechbubble{
+  margin-right: 2%;
+}
+
+.blinking-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(137, 3, 3);
+  border-radius: 50%;
+  margin-left: 3%;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+nav {
+  padding-left: 6%;
+  position: flex; /* Σταθερό μενού στο πάνω μέρος */
+  z-index: 1000; /* Για να εμφανίζεται πάνω από όλα τα άλλα στοιχεία */
+  
+} 
+
+/* Κρύβουμε το checkbox */
+#menu-toggle {
+  display: none;
+}
+
+.container {
+  display: inline-block;
+  cursor: pointer;
+
+}
+
+/* Γραμμές Hamburger Menu */
+.bar1, .bar2, .bar3 {
+  width: 50px; /* Πλάτος των γραμμών */
+  height: 7px; /* Πάχος των γραμμών */
+  background-color: #dc630d; /* Πορτοκαλί χρώμα */
+  margin: 6px 0; /* Απόσταση μεταξύ των γραμμών */
+  transition: 0.4s ease; /* Ομαλή μετάβαση */
+  margin-left: 47px;
+}
+
+/* Αλλαγή σε "Χ" */
+#menu-toggle:checked + .dropbtn .container .bar1 {
+  transform: translateY(13px) rotate(-45deg); /* Κάτω και περιστροφή */
+}
+
+#menu-toggle:checked + .dropbtn .container .bar2 {
+  opacity: 0; /* Εξαφανίζεται */
+}
+
+#menu-toggle:checked + .dropbtn .container .bar3 {
+  transform: translateY(-13px) rotate(45deg); /* Πάνω και περιστροφή */
+}
+
+
+.dropbtn {
+  padding: 20%; /* Μεγαλύτερο padding */
+  font-size: 18px; /* Μεγαλύτερο κείμενο */
+  display: inline-block;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Κάθετο dropdown */
+.dropdown-content {
+  position: absolute;
+  background-color: #e8be88;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-250px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  width: 200%; /* Αυξάνει το πλάτος του dropdown */
+}
+#menu-toggle:checked ~ .dropdown-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0); /* Επανέρχεται στη θέση του */
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10%; /* Μεγαλύτερο padding στα links */
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+  font-size: 18px; /* Μεγαλύτερο μέγεθος γραμματοσειράς */
+}
+
+.dropdown-content a.active {
+  background-color: #ffffff;
+  color: #dc630d;
+  font-weight: bold;
+}
+
+header h1{
+    color: rgb(38, 38, 107); 
+    font-family: 'Times New Roman', serif;
+    font-size: 35px;
+} 
+
+h1{
+  font-size: 30px;
+}
+
+h2, h3, h4, h6{
+    color: rgb(255, 255, 255);
+    font-family: Tahoma, sans-serif;
+    font-size: 23px;
+}
+
+li{
+  color: rgb(255, 255, 255);
+  font-family: Tahoma, sans-serif;
+  font-size: 16px;
+}
+
+p{
+    color: rgb(255, 255, 255); 
+    font-family: Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+header {
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60%;
+    padding: 2%; 
+    display: flex; 
+    align-items: center;
+}
+
+footer {
+  background-color: #26272b;
+  font-size: 15px;
+  position: relative;
+  left: 0;
+  width: 100%;
+  height: auto;  /* Ορίζουμε το ύψος να είναι αυτό που απαιτείται από το περιεχόμενο */
+  padding: 0.5% 0; /* Χρησιμοποιούμε μόνο κατακόρυφο padding για να μην αυξάνεται το ύψος υπερβολικά */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Διαχωρίζει τα περιεχόμενα του footer */
+  margin-top: auto; /* Σπρώχνει το footer στο κάτω μέρος */
+}
+
+/* Διορθώνουμε το hr του footer */
+footer hr {
+  margin: 0;  /* Αφαιρούμε το margin από την πάνω πλευρά */
+  border-top: 1px solid #bbb;  /* Ορίζουμε μια λεπτή γραμμή */
+  opacity: 0.5;
+}
+
+/* copyright-text */
+.copyright-text {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: Tahoma, sans-serif;
+  font-size: 18px;
+  margin-top: 2%;
+  margin-left: 2.5%;
+}
+
+/* Flexbox για τα social media */
+.socialMedia {
+  display: flex;
+  justify-content: center; /* Κεντράρουμε τα social media icons */
+  gap: 0.5%; /* Απόσταση μεταξύ των εικονιδίων */
+}
+
+.socialMedia li {
+  list-style: none;
+}
+
+.socialMedia li a {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 80px;
+  font-size: 35px;
+  margin: 0 10px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #fff;
+  z-index: 1;
+}
+
+.socialMedia a .icon {
+  position: relative;
+  color: #262626;
+  transition: .5s;
+  z-index: 3;
+}
+
+.socialMedia li a:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  transition: .5s;
+  z-index: 2;
+}
+
+.socialMedia li:nth-child(1) a:before {
+  background: #f80063;
+}
+
+.socialMedia li:nth-child(2) a:before {
+  background: #3b5999;
+}
+
+.socialMedia li:nth-child(3) a:before {
+  background: #dd4b39;
+}/* Gia to categories.html*/
+
+.math-ribbon {
+  position: absolute;
+  top: 5px;
+  left: 70%;
+  background-color: #13c628;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: rotate(30deg) scale(1);
+  }
+  50% {
+    transform: rotate(25deg) scale(1.1);
+  }
+}
+
+  .ribbon {
+    color: #13c628;
+    background-color:#ffffff;
+    padding: 1px 3px;
+    border-radius: 3px;
+    font-weight: bold; 
+  }
+
+    #DatabasesLogo{
+        display: block;
+        width: 40%;
+        margin-top: 30%;
+    }
+
+    #JavaLogo{
+        display: block;
+        width: 40%;
+        margin-top: 30%;
+    }
+
+    #SoftwaretechLogo{
+        display: block;
+        width: 40%;
+        margin-top: 30%;
+    }
+
+    #MathLogo{
+        display: block;
+        width: 40%;
+        margin-top: 30%;
+    }
+
+    #Databases-overlay, #SoftwareTech-overlay{
+      top: 95%;
+      height: 120%;
+      width: 135%;
+    }
+    
+    .text {
+        white-space: nowrap; 
+        color: white;
+        font-size: 18px;
+        position: absolute;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        }
+
+        .lesson-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px; /* Απόσταση μεταξύ των containers */
+          justify-content: center;
+        }
+
+        .lesson-container {
+          width: 45%; /* Δίνει χώρο για δύο στοιχεία ανά σειρά */
+          box-sizing: border-box;
+          text-align: center;
+          position: relative;
+          margin-bottom: 10%;
+          
+        }
+        .lesson-container h2{
+          font-size: 21px;
+        }
+        .lesson-container img {
+          width: 90%; 
+          max-width: 300px; /* καθορίζει το μέγιστο πλάτος */
+          height: auto;
+          margin: 0 auto;
+        }
+
+
+        .overlay {
+          position: absolute;
+          top: 85%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 125%;
+          height: 110%;
+          text-align: left;
+          background-color: #dc630d;
+          overflow: hidden;
+          opacity: 0; /* Αρχικά αόρατο */
+          visibility: hidden; /* Αρχικά μη ορατό */
+          transition: opacity 0.5s ease, visibility 0.5s ease; /* Εφέ μετάβασης */
+          border-radius: 8px;
+      }      
+        
+        
+/* Gia to aboutus.html*/
+/* The flip card container - set the width and height to whatever you want. 
+We have added the border property to demonstrate that the flip itself goes out of the box on hover */
+.flip-card {
+    display: flex;
+    background-color: transparent;
+    width: 450px; /* Μικρότερο πλάτος για να χωράνε δύο σε μια σειρά */
+    height: 500px;
+    margin-right: 15%;
+    margin-bottom: 20px; /* Απόσταση από τις άλλες κάρτες */
+    flex-shrink: 0;
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    background-image: url('images/cardbackground.webp');
+
+  }
+  
+  /* Style the front side */
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    background-color:  #dc630d;
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  #avatar{
+    margin-top: 50px;
+    width:450px;
+    height:345px;
+  }
+
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%;
+  }
+
+  .card {
+    text-align: center;
+  }
+
+    .flip-checkbox {
+    display: none; /* Κρύβουμε το checkbox */
+  }
+
+  /*Gia ta java1.html & maths1.java*/
+
+  .bibliography .books {
+    display: flex;
+    flex-wrap: wrap; /* Διατηρεί τη δυνατότητα περιτύλιξης */
+    gap: 20px; /* Απόσταση μεταξύ των στοιχείων */
+    padding: 0;
+    margin: 0 auto; /* Κεντράρει το περιεχόμενο */
+    list-style-type: none;
+    justify-content: center; /* Κεντράρει τα items οριζόντια */
+    max-width: 100%; /* Εξασφαλίζει ότι δεν ξεπερνά το πλάτος του container */
+  }
+  
+  .bibliography .books .booktitle {
+    border-radius: 8px;
+    padding: 15px;
+    box-sizing: border-box; /* Περιλαμβάνει padding στο πλάτος */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-bottom: 1em;
+  }
+  
+  .book-info p {
+    margin: 10px;
+    margin-left: 30px;
+  }
+  
+  .booktitle h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    text-align: center;
+  }
+  
+
+  #bookAndVideo {
+    display: block;
+    margin: 0 auto;
+    height: 150px; 
+    box-shadow: 6px 8px #1b1b1b98;
+    transition: filter 0.3s ease; /* Ομαλή μετάβαση στη φωτεινότητα */
+}
+  .checked {
+    color: rgb(227, 243, 4);
+  }
+  
+  .button {
+    border-radius: 4px;
+    background-color:  #13c628;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 25px;
+    padding: 10px;
+    width: 115px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+/*Gia ta javavideo.html & mathbook.html*/
+#bookLogismos {
+  position: relative; /* Ή absolute, αν θέλεις πιο απόλυτο έλεγχο */
+  left: 0; /* Τοποθέτησέ το στην αρχή */
+  height: 150px;
+  box-shadow: 6px 8px #1b1b1b98;
+  transition: filter 0.3s ease; /* Ομαλή μετάβαση στη φωτεινότητα */
+}
+
+  .previousButton {
+    padding: 10px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #b60a0a;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px #1b1b1b98;
+    margin-top: 12px;
+  }
+  
+  .previousButton:active {
+    background-color: #b60a0a;
+    color: #fff;
+    box-shadow:0 4px #1b1b1b98;
+    transform: translateY(4px);
+  }
+  iframe {
+    display: block;
+    margin: 0 auto; /* Κεντράρει το iframe οριζόντια */
+    width: 800px;
+    height: 400px;
+    border: none;
+    margin-bottom: 12%;
+    box-shadow: 6px 8px #1b1b1b98;
+  }
+
+  #video-icon{
+    margin-right: 5px;
+  }
+  
+  #mathChapters{
+    height: 150px; 
+    box-shadow:6px 8px #1b1b1b98;
+    margin-bottom: 2.6%;
+  }
+
+  .button-85 {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-left: 10px;
+  }
+  
+  .button-85:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #3fdd00,
+      #00ffd5,
+      #e95ff3,
+      #e95ff3,
+      #00ffd5,
+      #3fdd00
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  @keyframes glowing-button-85 {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  .button-85:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:#26272b;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+
+/*Grid layout & font face*/
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+  padding: 20px;
+}
+
+footer {
+  grid-area: footer;
+}
+
+
+
+aside {
+  right: 10px;
+  top: 30px;
+  grid-area: aside;
+  position: relative;
+  flex-direction: column; /* Στοιχεία σε κάθετη στοίχιση */
+
+}
+
+  .announcement-container h2 {
+    margin-bottom: 80px;
+    padding: 10px 0; /* Χώρος πάνω-κάτω για τον τίτλο */
+    color: white; /* Χρώμα τίτλου για να ξεχωρίζει από το background */
+    text-align: center;
+    font-size: 24px; /* Προσαρμόσιμο μέγεθος γραμματοσειράς */
+    width: 80%; /* Κατάληψη όλου του πλάτους */
+    border-bottom: 2px solid white; /* Προαιρετική γραμμή διαχωρισμού */
+  }
+  
+  /* Απόκρυψη των radio buttons */
+input[type="radio"] {
+  display: none;
+}
+
+.announcement-container {
+  position: flex;
+  display: flex;
+  flex-direction: column; /* Κατακόρυφη στοίχιση */
+  align-items: center; /* Κεντρική οριζόντια στοίχιση */
+  justify-content: center; /* Κεντρική κάθετη στοίχιση */
+  flex-grow: 1; /* Επεκτείνεται για να γεμίσει τον υπόλοιπο χώρο */
+  width: 100%;
+  text-align: center;
+  background-image: url('images/announcement.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px; 
+  background-blend-mode: overlay;
+  background-color: #0000008b;
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.317); /* Περιμετρικός φωτισμός */
+  height: 300px; 
+  justify-content: flex-start; /* Ο τίτλος μένει πάνω */
+}
+
+/* Στυλ για τις ανακοινώσεις */
+.announcement-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  
+}
+
+.announcement-container a{
+  font-weight: bold;
+  color:  rgb(126, 195, 252);
+}
+
+.announcement-container li{
+  margin-top: -10%;
+}
+
+.announcement-container ul li {
+  display: none;
+  font-size: 18px;
+  font-style: italic;
+  color: white; /* Για ευκρίνεια */
+
+}
+
+/* Εμφάνιση της επιλεγμένης ανακοίνωσης */
+#announcement-1:checked ~ #announcements .announcement[data-for="announcement-1"],
+#announcement-2:checked ~ #announcements .announcement[data-for="announcement-2"],
+#announcement-3:checked ~ #announcements .announcement[data-for="announcement-3"] {
+  display: block;
+}
+
+/* Στυλ για τα βελάκια */
+.arrows {
+  display: flex;
+  justify-content: center;
+  gap:20px;
+  margin-top:3%;
+}
+
+.arrow {
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.dots {
+  display: flex;
+  justify-content: center; /* Κεντράρει τις κουκκίδες */
+  gap: 10px; /* Απόσταση μεταξύ κουκκίδων */
+  margin-top: 4%; /* Απόσταση από τα βελάκια */
+}
+
+.dot {
+  width: 12px; /* Πλάτος κουκκίδας */
+  height: 12px; /* Ύψος κουκκίδας */
+  border-radius: 50%; /* Κυκλική μορφή */
+  background-color: #ccc; /* Χρώμα ανενεργής κουκκίδας */
+  cursor: pointer;
+}
+/* Πρώτη ανακοίνωση */
+
+/* Απόκρυψη των βελών που δεν χρειάζονται */
+#announcement-1:checked ~ .arrows .prevIs1 {
+  display: none;
+}
+#announcement-1:checked ~ .arrows .prevIs2 {
+  display: none;
+}
+#announcement-1:checked ~ .arrows .nextIs1 {
+  display: none;
+}
+#announcement-1:checked ~ .arrows .nextIs3 {
+  display: none;
+}
+
+/* Εμφάνιση των βελών που χρειάζονται */
+#announcement-1:checked ~ .arrows .prevIs3 {
+  display: block;
+}
+#announcement-1:checked ~ .arrows .nextΙs2 {
+  display: block;
+}
+
+/* Δεύτερη ανακοίνωση */
+/* Απόκρυψη των βελών που δεν χρειάζονται */
+#announcement-2:checked ~ .arrows .prevIs2 {
+  display: none;
+}
+#announcement-2:checked ~ .arrows .prevIs3 {
+  display: none;
+}
+#announcement-2:checked ~ .arrows .nextIs1 {
+  display: none;
+}
+#announcement-2:checked ~ .arrows .nextIs2 {
+  display: none;
+}
+
+
+/* Εμφάνιση των βελών που χρειάζονται */
+#announcement-2:checked ~ .arrows .prevIs1 {
+  display: block;
+}
+#announcement-2:checked ~ .arrows .nextIs3 {
+  display: block;
+}
+
+/* Τρίτη ανακοίνωση */
+/* Απόκρυψη των βελών που δεν χρειάζονται */
+#announcement-3:checked ~ .arrows .prevIs1 {
+  display: none;
+}
+#announcement-3:checked ~ .arrows .prevIs3 {
+  display: none;
+}
+#announcement-3:checked ~ .arrows .nextIs2 {
+  display: none;
+}
+#announcement-3:checked ~ .arrows .nextIs3 {
+  display: none;
+}
+
+/* Εμφάνιση των βελών που χρειάζονται */
+#announcement-3:checked ~ .arrows .nextIs1 {
+  display: block;
+}
+  
+/* Ενεργή κουκκίδα */
+#announcement-1:checked ~ .dots label[for="announcement-1"],
+#announcement-2:checked ~ .dots label[for="announcement-2"],
+#announcement-3:checked ~ .dots label[for="announcement-3"] {
+  background-color: #dc630d; /* Χρώμα ενεργής κουκκίδας */
+}
+
+#bell{
+  color: #e5ff00;
+  animation: fadeInOut 1s infinite; /* Το animation διαρκεί 2 δευτερόλεπτα και επαναλαμβάνεται */
+
+}
+
+#calendar{
+  color: #0779e4;
+  animation: fadeInOut 1s infinite; /* Το animation διαρκεί 2 δευτερόλεπτα και επαναλαμβάνεται */
+
+}
+
+#book{
+  color: #ae0303;
+  animation: fadeInOut 1s infinite; /* Το animation διαρκεί 2 δευτερόλεπτα και επαναλαμβάνεται */
+
+}
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 1; /* Πλήρως ορατό */
+  }
+  50% {
+    opacity: 0.2; /* Εξαφανισμένο */
+  }
+
+}
+
+  
+  @font-face {
+    font-family: 'Times New Roman';
+    src: url('fonts/TimesNewRoman.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Tahoma';
+    src: url('fonts/Tahoma.woff2') format('woff2'),
+         url('fonts/Tahoma.woff') format('woff');
+  }
+
+#star{
+  color: #ffff00;
+}
+
+
+.discord-info {
+  top: 10%;
+  position: relative;
+  margin-bottom: 60%;
+  padding: 20px;
+  background-color: #5865F2; /* Discord Primary Color */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.discord-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+}
+
+.discord-info p {
+  margin: 0 0 20px;
+  font-size: 1rem;
+}
+
+.discord-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #7289da; /* Discord Button Color */
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.discord-button i {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.bouncing-text {
+  display: inline-block;
+  animation: bounce 0.5s infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+
+/* Στυλ για το κουμπί */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px; /* Απόσταση από το κάτω μέρος */
+  right: 30px; /* Απόσταση από τη δεξιά πλευρά */
+  width: 50px;
+  height: 50px;
+  background-color: #dc630d; /* Πορτοκαλί χρώμα */
+  border-radius: 50%; /* Κυκλικό σχήμα */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Σκιά */
+  color: white; /* Χρώμα για το εικονίδιο */
+  font-size: 24px; /* Μέγεθος για το εικονίδιο */
+  text-decoration: none;
+  opacity: 0; /* Αρχικά αόρατο */
+  visibility: hidden; /* Αρχικά μη ορατό */
+  transition: opacity 0.3s, visibility 0.3s; /* Ομαλή μετάβαση */
+  z-index: 1000; /* Να εμφανίζεται πάνω από άλλα στοιχεία */
+}
+
+/* Εμφάνιση του κουμπιού όταν η σελίδα έχει scroll */
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 100%; /* Full-width layout for smaller screens */
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+  }
+/*header*/
+  header {
+    flex-direction: column; /* Stack logo and title vertically */
+    align-items: center;
+    text-align: center;
+  }
+
+  #logo {
+    height: 80px; /* Smaller logo for mobile */
+    margin-left: 20%;
+  }
+  header h1{
+    margin-top: 1px;
+    font-size: 21px;
+  }
+
+  /*menu*/
+  .dropdown-content {
+    flex-direction: row; /* Στο κινητό διατηρείται η κάθετη διάταξη */
+    width: 330px; /* Πιάνει όλο το πλάτος της οθόνης */
+    margin-left: 90%;
+    top: -10%;
+    transform: translateX(-500px);
+  }
+  .dropdown-content a{
+    text-align: center;
+  }
+
+  .dropdown{
+    top: 5%;
+  }
+
+  .bar1, .bar2, .bar3 {
+    margin-left: 0; /* Ελαφριά προσαρμογή για το hamburger menu */
+    width: 35px; /* Μικραίνει το μέγεθος των γραμμών του hamburger */
+  }
+
+  .cta-box, .chat-support{
+    margin-top: 10%;
+    margin-right: 2%;
+  }
+
+  .announcement-container{
+    margin-left: 5%;
+    width: 95%;
+    margin-top: 2%;
+  }
+
+  .discord-info{
+    margin-left: 4%;
+    margin-bottom: 40%;
+  }
+  .lesson-container h2 {
+    display: flex; /* Χρησιμοποιούμε flexbox για οριζόντια διάταξη */
+  }
+  .lesson-container img{
+    margin-top: 20%;
+  }
+  
+  .math-ribbon {
+    margin-left: -30%; /* Απόσταση μεταξύ του τίτλου και της κορδέλας */
+  }
+
+
+  .lesson-container{
+    width: 100%;
+    margin-bottom: 12%;
+  }
+
+  .overlay{
+    top: 62%;
+  
+  }
+
+  #SoftwareTech-overlay{
+    top: 70%;
+  }
+
+  #math-mobile-overlay{
+    height: 88%;
+    top: 70%;
+  }
+
+  #Databases-overlay{
+    height: 120%;
+    top: 100%;
+  }
+
+  .lesson-container:focus-within .overlay {
+    opacity: 1; /* Εμφανίζει το overlay */
+    visibility: visible; /* Ενεργοποιεί την ορατότητα */  
+  }
+
+  .lesson-container{
+    cursor: pointer; /* Αλλαγή δείκτη ποντικιού */
+  }
+
+  .bibliography .books .booktitle {
+    flex: 1 1 calc(100% - 20px); /* Το κάθε στοιχείο καταλαμβάνει το 1/3 του διαθέσιμου πλάτους */
+    max-width: calc(100% - 20px); /* Περιορίζει το πλάτος για να χωράνε τρία στη σειρά */
+  }
+
+  iframe{
+    width: 100%;
+  }
+
+  #bookLogismos{
+    left: 35%;
+  }
+
+  #mathChapters{
+    width: 115%;
+    height: 100%;
+    margin-left: -12%;
+
+  }
+
+  .cards-container{
+    flex-direction: column;
+  }
+  .flip-checkbox {
+    display: none; /* Κρύβουμε το checkbox */
+  }
+  
+  .flip-card {
+    cursor: pointer;
+    width: 100%; /* Πιάνει όλο το πλάτος */
+    max-width: 100%; /* Δεν περιορίζεται */
+  }
+  /* Εφαρμόζουμε το flip όταν το input είναι checked */
+  .flip-checkbox:checked + .flip-card .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+  @media (min-width: 769px) and (max-width: 1023px) {
+    body {
+      display: grid;
+      grid-template-columns: 35% 65%;
+      grid-template-areas:
+        "header header"
+        "nav main"
+        "aside main"
+        "footer footer"; /* Footer σε πλήρες πλάτος */
+      gap: 10px;
+    }
+  
+  /*header*/
+  header {
+    flex-direction: column; /* Stack logo and title vertically */    
+    align-items: center;
+    text-align: center;
+  }
+
+  #logo {
+    height: 90px; /* Smaller logo for mobile */
+    margin-left:20%;
+  }
+  header h1{
+    margin-top: -1%;
+    font-size: 23px;
+  }
+
+  .chat-support a{
+    font-size: 14px;
+
+  }
+
+  .blinking-dot{
+    margin-left: 1px;
+  }
+
+  #maths1-tablet-aside {
+    top: -60%;
+    position: relative;
+  }
+
+  #mathbook-tablet-aside{
+    top: -75%;
+  }
+
+  #java1-tablet-aside {
+    top: -55%;
+  }
+
+
+.announcement-container{
+  margin-left: 8%;
+  width: 100%;
+  margin-top: 45%
+}
+aside {
+  position: relative;
+  margin-top: 5%;
+  z-index: 2000; /* Βεβαιώνεται ότι είναι πάνω από όλα */
+}
+
+#news{
+  font-size: 22px;
+}
+
+#announcements li{
+
+  margin-top: -10%;
+  font-size: 19px;
+}
+
+.arrows {
+  margin-top: 3%; /* Αντί για position absolute */
+  position: flex; /* Δεν θα είναι πια απόλυτη τοποθέτηση */
+}
+
+.dots {
+  margin-top: 5%;
+  position: flex; /* Αντί για absolute */
+}
+
+.discord-info{
+  margin-left: 8%;
+  margin-bottom: 110%;
+}
+
+.lesson-container h2 {
+  display: flex; /* Χρησιμοποιούμε flexbox για οριζόντια διάταξη */
+}
+
+.lesson-container img{
+  margin-top: 20%;
+}
+
+.math-ribbon {
+  margin-left: -30%; /* Απόσταση μεταξύ του τίτλου και της κορδέλας */
+}
+.lesson-container{
+  width: 100%;
+  margin-bottom: 40%;
+}
+
+.overlay{
+  top: 75%;
+  height: 65%;
+  width: 100%;
+}
+
+#SoftwareTech-overlay{
+  top: 75%;
+  height: 80%;
+  
+}
+#SoftwareTech-overlay li, #Databases-overlay li, #math-mobile-overlay li{
+  font-size: 16px;
+  font-style: bold;
+}
+
+#math-mobile-overlay{
+  height: 75%;
+  top: 80%;
+}
+
+#Databases-overlay{
+  top: 95%;
+  height: 100%;
+}
+
+.lesson-container:focus-within .overlay {
+  opacity: 1; /* Εμφανίζει το overlay */
+  visibility: visible; /* Ενεργοποιεί την ορατότητα */  
+}
+
+.lesson-container{
+  cursor: pointer; /* Αλλαγή δείκτη ποντικιού */
+}
+
+.lesson-container:focus-within .overlay {
+  opacity: 1; /* Εμφανίζει το overlay */
+  visibility: visible; /* Ενεργοποιεί την ορατότητα */  
+}
+
+.lesson-container{
+  cursor: pointer; /* Αλλαγή δείκτη ποντικιού */
+}
+
+.bibliography .books .booktitle {
+  flex: 1 1 calc(100% - 20px); /* Το κάθε στοιχείο καταλαμβάνει το 1/3 του διαθέσιμου πλάτους */
+  max-width: calc(100% - 20px); /* Περιορίζει το πλάτος για να χωράνε τρία στη σειρά */
+}
+
+
+#mathChapters{
+  width: 110%;
+  height: 100%;
+  margin-left: -10%;
+}
+
+iframe{
+  width: 100%;
+  height: 15%;
+}
+
+.cards-container{
+  flex-direction: column;
+  
+}
+.flip-checkbox {
+  display: none; /* Κρύβουμε το checkbox */
+}
+
+.flip-card {
+  cursor: pointer;
+  width: 100%; /* Πιάνει όλο το πλάτος */
+  max-width: 100%; /* Δεν περιορίζεται */
+}
+
+.flip-checkbox:checked + .flip-card .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back{
+  height: 120%;
+}
+
+.card{
+  margin-bottom: 60%;
+}
+
+#avatar{
+  margin-top: 30%;
+  margin-left: -12%;
+  margin-right: -12%;
+}
+
+}
+
+@media(min-width: 1024px) and (max-width:1699px){
+
+  header {
+    flex-direction: row; /* Stack logo and title vertically */    
+    align-items: center;
+    text-align: center;
+  }
+
+
+header h1{
+  position: absolute;
+  left: 12%; 
+  right: 12%;
+}
+
+  a:hover {
+    color: rgb(0, 0, 0);
+}
+
+.cta-button:hover {
+  background-color: #4c74ed;
+  color: #ffffff;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.chat-support:hover {
+  background-color: #4c74ed;
+}
+
+.chat-support:hover::after {
+  border-color: #4c74ed transparent transparent transparent;
+}
+
+.chat-support-button:hover {
+  color: #ffffff;
+}
+
+.dropdown-content a:hover {
+  background-color: #dc630d;
+  color: white;
+  transform: scale(1.05); /* Ελαφρύ zoom στο hover */
+}
+
+.socialMedia li a:hover .icon {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+.socialMedia li a:hover:before {
+  top: 0;
+}
+
+.lesson-container:hover .overlay {
+  opacity: 1; /* Κάνει το στοιχείο ορατό */
+  visibility: visible; /* Ενεργοποιεί την ορατότητα */
+}
+
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .bibliography .books .booktitle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  #bookAndVideo:hover {
+    filter: brightness(1.2); /* Αύξηση φωτεινότητας κατά 60% */
+    height: 160px;
+  }
+
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  #bookLogismos:hover {
+    filter: brightness(1.2); /* Αύξηση φωτεινότητας κατά 60% */
+    height: 160px;
+  }
+
+.previousButton:hover {
+  background-color: #ffffff;
+  color:#b60a0a;
+  } 
+
+  #mathLinks:hover,  #java-link:hover {
+    color:  #f07116;
+    text-decoration:underline;
+  }
+
+  .announcement-container a:hover {
+    color: rgb(126, 195, 252);
+    text-decoration: underline;
+    text-shadow: 
+      0 0 2px rgb(126, 195, 252);
+    transition: all 0.3s ease; /* Ομαλή μετάβαση */
+  }
+
+  .arrow:hover {
+    color: #ffffff;
+  }
+
+  .dot:hover {
+    background-color: #aaa; /* Χρώμα κατά την αιώρηση */
+  }
+
+  .discord-button:hover {
+    background-color: #5b6eae;
+    transform: scale(1.05);
+  }
+
+  /* Εφέ αιώρησης */
+.scroll-to-top:hover {
+  background-color: #4c74ed; /* Μπλε χρώμα κατά την αιώρηση */
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+      "header header header"
+      "nav main aside"
+      "footer footer footer";
+  grid-template-columns: 12% 66% 22%; /* Καθορίζουμε σταθερό πλάτος για το aside */
+  grid-template-rows: auto 1fr auto;
+  gap: 10px;
+  min-height: 100vh; 
+}
+.cta-box{
+  width: 88%;
+  margin-right: 5%;
+}
+aside{
+  margin-right: 7%;
+}
+.cta-box p{
+  font-size: 106%;
+}
+}
+@media(min-width : 1700px){
+  header {
+    flex-direction: row; /* Stack logo and title vertically */    
+    align-items: center;
+    text-align: center;
+  }
+
+
+header h1{
+  position: absolute;
+  left: 12%; 
+  right: 12%;
+}
+
+  a:hover {
+    color: rgb(0, 0, 0);
+}
+
+.cta-button:hover {
+  background-color: #4c74ed;
+  color: #ffffff;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.chat-support:hover {
+  background-color: #4c74ed;
+}
+
+.chat-support:hover::after {
+  border-color: #4c74ed transparent transparent transparent;
+}
+
+.chat-support-button:hover {
+  color: #ffffff;
+}
+
+.dropdown-content a:hover {
+  background-color: #dc630d;
+  color: white;
+  transform: scale(1.05); /* Ελαφρύ zoom στο hover */
+}
+
+.socialMedia li a:hover .icon {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+.socialMedia li a:hover:before {
+  top: 0;
+}
+
+.lesson-container:hover .overlay {
+  opacity: 1; /* Κάνει το στοιχείο ορατό */
+  visibility: visible; /* Ενεργοποιεί την ορατότητα */
+}
+
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .bibliography .books .booktitle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  #bookAndVideo:hover {
+    filter: brightness(1.2); /* Αύξηση φωτεινότητας κατά 60% */
+    height: 160px;
+  }
+
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  #bookLogismos:hover {
+    filter: brightness(1.2); /* Αύξηση φωτεινότητας κατά 60% */
+    height: 160px;
+  }
+
+.previousButton:hover {
+  background-color: #ffffff;
+  color:#b60a0a;
+  } 
+
+  #mathLinks:hover,  #java-link:hover {
+    color:  #f07116;
+    text-decoration:underline;
+  }
+
+  .announcement-container a:hover {
+    color: rgb(126, 195, 252);
+    text-decoration: underline;
+    text-shadow: 
+      0 0 2px rgb(126, 195, 252);
+    transition: all 0.3s ease; /* Ομαλή μετάβαση */
+  }
+
+  .arrow:hover {
+    color: #ffffff;
+  }
+
+  .dot:hover {
+    background-color: #aaa; /* Χρώμα κατά την αιώρηση */
+  }
+
+  .discord-button:hover {
+    background-color: #5b6eae;
+    transform: scale(1.05);
+  }
+
+  /* Εφέ αιώρησης */
+.scroll-to-top:hover {
+  background-color: #4c74ed; /* Μπλε χρώμα κατά την αιώρηση */
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+      "header header header"
+      "nav main aside"
+      "footer footer footer";
+  grid-template-columns: 12% 66% 22%; /* Καθορίζουμε σταθερό πλάτος για το aside */
+  grid-template-rows: auto 1fr auto;
+  gap: 10px;
+  min-height: 100vh; 
+}
+.cta-box{
+  width: 88%;
+  margin-right: 5%;
+}
+aside{
+  margin-right: 7%;
+}
+.cta-box p{
+  font-size: 106%;
+}
+.bibliography .books .booktitle {
+  flex: 1 1 calc(33.33% - 20px); /* Το κάθε στοιχείο καταλαμβάνει το 1/3 του διαθέσιμου πλάτους */
+    max-width: calc(33.33% - 20px); /* Περιορίζει το πλάτος για να χωράνε τρία στη σειρά */
+  }
+
+  .overlay {
+    top: 60%;
+    left: 50%;
+    width: 100%;
+    height: 83%;
+  }
+
+  #DatabasesLogo{
+
+    margin-top: 20%;
+}
+
+#JavaLogo{
+    display: block;
+    width: 40%;
+    margin-top: 10%;
+}
+
+#SoftwaretechLogo{
+    display: block;
+    width: 40%;
+    margin-top: 20%;
+}
+
+#MathLogo{
+    display: block;
+    width: 40%;
+    margin-top: 15%;
+}
+
+#Databases-overlay, #SoftwareTech-overlay{
+  top: 55%;
+  height: 75%;
+  width: 100%;
+}
+
+.math-ribbon{
+  top: 3px;
+  left: 60%;
+}
+
+}
+
+
+/* Στυλ για το container */
+.registration-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Επικεφαλίδα */
+.registration-form h1 {
+  text-align: center;
+  color: #007BFF;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Φόρμα */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Περιοχές της φόρμας */
+fieldset {
+  border: 2px solid #80deea;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f0f8fa;
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+fieldset:hover {
+  transform: scale(1.02);
+}
+
+legend {
+  padding: 0 10px;
+  font-weight: bold;
+  color: #007BFF;
+}
+
+/* Ετικέτες και εισόδους */
+label {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #555;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+
+/* Κουμπί */
+#sub {
+  background:  #dc630d;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+#sub:hover {
+  background-color: #17b309;
+}
+
+/* Περιοχή κωδικού πρόσβασης */
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+
+
+/* Εφέ εμφάνισης */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Στυλ για το popup */
+#successPopup {
+  display: none; /* Κρυφό εξ αρχής */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; /* Μεγαλύτερο κουτί */
+  background-color: rgba(212, 237, 218, 0.95); /* Λίγη διαφάνεια */
+  color: #155724;
+  padding: 30px;
+  border-radius: 20px; /* Στρογγυλεμένες γωνίες */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  z-index: 3000;
+  backdrop-filter: blur(4px); /* Blur στο background */
+  border: 2px solid rgba(23, 125, 59, 0.505); /* Απαλό λευκό περίγραμμα */
+}
+
+/* Στυλ για τον κύκλο με το check */
+#successPopup i {
+  display: inline-block;
+  width: 60px; /* Μεγαλύτερος κύκλος */
+  height: 60px;
+  border-radius: 50%;
+  background-color: #28a745;
+  color: white;
+  font-size: 30px; /* Μεγαλύτερο check */
+  line-height: 60px; /* Κεντράρισμα του check */
+  margin-bottom: 15px; /* Απόσταση από το μήνυμα */
+  animation: scaleIn 0.5s ease-out; /* Εμφάνιση με animation */
+  margin-right: 5%;
+}
+
+/* Keyframes για το animation του check */
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Στυλ για το μήνυμα */
+#successPopup span {
+  font-size: 18px; /* Πιο μεγάλο μέγεθος γραμματοσειράς */
+  font-weight: bold; /* Έντονη γραφή */
+  margin-top: 10px; /* Λίγη απόσταση από το check */
+}
